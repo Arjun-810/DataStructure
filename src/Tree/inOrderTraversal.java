@@ -14,7 +14,7 @@ public class inOrderTraversal {
         if (node==null)
             return;
         inOrder(node.left);
-        System.out.println(node.data);
+            System.out.println(node.data);
         inOrder(node.right);
     }
     public static void main(String[] args) {
