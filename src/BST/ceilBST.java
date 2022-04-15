@@ -10,10 +10,16 @@ public class ceilBST {
     }
 
     public static int isPresent(Node root, int x, int isAva) {
-        if (root == null) return -1;
-        if (root.data >= x) return root.data;
-        if (x<root.data) isAva = isPresent(root.left,x,isAva);
-        else isAva = isPresent(root.right,x,isAva);
+        if (root == null) return isAva;
+        if (root.data == x) return root.data;
+        if (x<root.data){
+            isAva = isPresent(root.left,x,isAva);
+        }
+
+        else{
+            isAva = root.data;
+            isAva = isPresent(root.right,x,isAva);
+        }
         return isAva;
 
     }
@@ -33,7 +39,7 @@ public class ceilBST {
     public static void main(String[] args) {
         int[] keys = { 15, 10, 20, 8, 12, 16, 25 };
         Node root = constructBst(keys);
-        int x = 14;
+        int x = 24;
         System.out.print(isPresent(root,x,0));
     }
 }
